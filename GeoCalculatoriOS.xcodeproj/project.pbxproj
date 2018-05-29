@@ -16,6 +16,7 @@
 		7B86937020BDB13500F99F1B /* GeoCalculatoriOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B86936F20BDB13500F99F1B /* GeoCalculatoriOSUITests.swift */; };
 		7B86937F20BDC8BE00F99F1B /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B86937D20BDC8BD00F99F1B /* CLLocationExtensions.swift */; };
 		7B86938020BDC8BE00F99F1B /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B86937E20BDC8BE00F99F1B /* DecimalMinusTextField.swift */; };
+		7B86938220BDD02B00F99F1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B86938120BDD02B00F99F1B /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		7B86937120BDB13500F99F1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B86937D20BDC8BD00F99F1B /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
 		7B86937E20BDC8BE00F99F1B /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
+		7B86938120BDD02B00F99F1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				7B86935620BDB13500F99F1B /* Assets.xcassets */,
 				7B86935820BDB13500F99F1B /* LaunchScreen.storyboard */,
 				7B86935B20BDB13500F99F1B /* Info.plist */,
+				7B86938120BDD02B00F99F1B /* SettingsViewController.swift */,
 			);
 			path = GeoCalculatoriOS;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				7B86935220BDB12F00F99F1B /* ViewController.swift in Sources */,
 				7B86937F20BDC8BE00F99F1B /* CLLocationExtensions.swift in Sources */,
 				7B86938020BDC8BE00F99F1B /* DecimalMinusTextField.swift in Sources */,
+				7B86938220BDD02B00F99F1B /* SettingsViewController.swift in Sources */,
 				7B86935020BDB12F00F99F1B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
