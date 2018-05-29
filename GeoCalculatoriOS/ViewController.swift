@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SettingsViewControllerDelegate {
 
     
     @IBOutlet weak var latitudeP1TextField: UITextField!
@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
+    
+    var calcButtonPressed: UIButton!
     
     var distanceUnits: String = "Kilometers"
     var bearingUnits: String = "Degrees"
@@ -39,9 +41,22 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func calculateButton(_ sender: UIButton) {
+    // protocol from settings view
+    func settingsChanged(distanceUnits: String, bearingUnits: String) {
+        self.distanceUnits = distanceUnits
+        self.bearingUnits = bearingUnits
+       // calculateButton.sendActions(for: .touchUpInside)
+        calculateDistanceBearing()
         
-        // dismiss keyboard when button pressed
+    }
+    
+    @IBAction func calculateButton(_ sender: UIButton) {
+        calculateDistanceBearing()
+    }
+    
+    func calculateDistanceBearing () {
+            
+           // dismiss keyboard when button pressed
         self.dismissKeyboard()
         
         // used to check for valid points

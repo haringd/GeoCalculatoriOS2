@@ -8,8 +8,26 @@
 
 import UIKit
 
+// used to handover data from SettingsViewController to ViewController
+protocol SettingsViewControllerDelegate {
+     func settingsChanged(distanceUnits: String, bearingUnits: String)
+}
+
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var picksUnit: UIPickerView!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var bearingLabel: UILabel!
+    
+    @IBOutlet weak var calculateButtonoutlet: UIButton!
+    
+    var distanceUnits: String = ""
+    var bearingUnits: String = ""
+    
+    var pickerData: [String] = [String]()
+    var selection : String = ""
+    var delegate : SettingsViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +39,11 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if let d = self.delegate {
+            d.settingsChanged(distanceUnits: "test1", bearingUnits: "test2")
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -32,4 +55,31 @@ class SettingsViewController: UIViewController {
     }
     */
 
+    
+    
+}
+
+
+extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+    // The number of columns of data
+    func numberOfComponents(in: UIPickerView) -> Int
+    {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return self.pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        self.selection = self.pickerData[row]
+    }
 }
