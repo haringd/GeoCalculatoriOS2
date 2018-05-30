@@ -20,7 +20,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
     
-    var calcButtonPressed: UIButton!
+    @IBOutlet weak var calculateButton: UIButton!
     
     var distanceUnits: String = "Kilometers"
     var bearingUnits: String = "Degrees"
@@ -29,6 +29,22 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        // dismiss keyboard when tapping outside oftext fields
+        let detectTouch = UITapGestureRecognizer(target: self, action:
+            #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(detectTouch)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let navVC = segue.destination as? UINavigationController {
+            if let settingsVC = navVC.viewControllers.first as? SettingsViewController {
+                settingsVC.delegate = self
+                settingsVC.distanceUnits = self.distanceUnits
+                settingsVC.bearingUnits = self.bearingUnits
+            }
+        }
         
     }
 
@@ -45,12 +61,12 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     func settingsChanged(distanceUnits: String, bearingUnits: String) {
         self.distanceUnits = distanceUnits
         self.bearingUnits = bearingUnits
-       // calculateButton.sendActions(for: .touchUpInside)
-        calculateDistanceBearing()
+       calculateButton.sendActions(for: .touchUpInside)
         
     }
     
     @IBAction func calculateButton(_ sender: UIButton) {
+        print("calculate Button")
         calculateDistanceBearing()
     }
     
