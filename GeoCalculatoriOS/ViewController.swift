@@ -29,6 +29,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // set background color to BACKGORUND_COLOR
+        self.view.backgroundColor = BACKGROUND_COLOR
         
         // dismiss keyboard when tapping outside oftext fields
         let detectTouch = UITapGestureRecognizer(target: self, action:
